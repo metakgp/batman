@@ -5,7 +5,9 @@ import sys
 from slackclient import SlackClient
 import redis
 
-token = 'xoxb-11032520071-yPycTGRY3ZmAaQMZEWCN6Wwf'
+with open('./ACCESS_TOKEN', 'r') as f:
+    token = f.readline().rstrip('\n')
+
 sc = SlackClient(token)
 
 slack = partial(sc.api_call, username='batman', link_names=1, icon_url='http://i.picresize.com/images/2015/09/20/tdpsU.jpg')
